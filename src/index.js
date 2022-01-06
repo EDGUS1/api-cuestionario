@@ -6,12 +6,14 @@ const fastify = require('fastify')({
 
 require('./database');
 const userRoute = require('./routes/user.routes');
+const leaderRoute = require('./routes/leaderboard.routes');
 
 fastify.get('/', (req, reply) => {
   reply.send({ hello: '2022' });
 });
 
 userRoute.forEach(r => fastify.route(r));
+leaderRoute.forEach(r => fastify.route(r));
 
 const start = async () => {
   fastify.listen(3000);

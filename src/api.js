@@ -5,7 +5,7 @@ const fastify = require('fastify')({
 });
 const serverless = require('serverless-http');
 
-require('./database');
+require('./utils/database');
 const userRoute = require('./routes/user.routes');
 const leaderRoute = require('./routes/leaderboard.routes');
 const cuestionarioRoute = require('./routes/cuestionario.routes');

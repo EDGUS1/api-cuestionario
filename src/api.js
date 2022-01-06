@@ -1,9 +1,9 @@
-const serverless = require('serverless-http');
 require('dotenv').config();
 
 const fastify = require('fastify')({
   logger: true,
 });
+const serverless = require('serverless-http');
 
 require('./database');
 const userRoute = require('./routes/user.routes');

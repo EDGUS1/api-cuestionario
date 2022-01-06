@@ -1,20 +1,36 @@
+const {
+  getCuestionarios,
+  getCuestionario,
+  createCuestionario,
+  deleteCuestionario,
+  updateCuestionario,
+} = require('../controllers/cuestionario.controller');
+
 const route = [
   {
-    url: '/pregunta',
+    url: '/cuestionario',
     method: 'GET',
-    handler: getPreguntas,
+    handler: getCuestionarios,
   },
   {
-    url: '/pregunta/:id',
+    url: '/cuestionario/:id',
     method: 'GET',
-    handler: (req, reply) => {
-      reply.send(`product: ${req.params.id}`);
-    },
+    handler: getCuestionario,
   },
   {
-    url: '/pregunta',
+    url: '/cuestionario',
     method: 'POST',
-    handler: savePregunta,
+    handler: createCuestionario,
+  },
+  {
+    url: '/cuestionario/:id',
+    method: 'DELETE',
+    handler: deleteCuestionario,
+  },
+  {
+    url: '/cuestionario/:id',
+    method: 'PUT',
+    handler: updateCuestionario,
   },
 ];
 

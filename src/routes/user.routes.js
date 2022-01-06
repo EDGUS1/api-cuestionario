@@ -8,27 +8,27 @@ const {
 
 const route = [
   {
-    url: '/user',
+    url: '/.netlify/functions/api/user',
     method: 'GET',
     handler: getUsers,
   },
   {
-    url: '/user/:id',
+    url: '/.netlify/functions/api/user/:id',
     method: 'GET',
     handler: getUser,
   },
   {
-    url: '/user',
+    url: '/.netlify/functions/api/user',
     method: 'POST',
     handler: createUser,
   },
   {
-    url: '/user/:id',
+    url: '/.netlify/functions/api/user/:id',
     method: 'DELETE',
     handler: deleteUser,
   },
   {
-    url: '/user/:id',
+    url: '/.netlify/functions/api/user/:id',
     method: 'PUT',
     handler: updateUser,
   },

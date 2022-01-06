@@ -1,3 +1,4 @@
+const serverless = require('serverless-http');
 require('dotenv').config();
 
 const fastify = require('fastify')({
@@ -9,7 +10,7 @@ const userRoute = require('./routes/user.routes');
 const leaderRoute = require('./routes/leaderboard.routes');
 const cuestionarioRoute = require('./routes/cuestionario.routes');
 
-fastify.get('/', (req, reply) => {
+fastify.get('/.netlify/functions/api', (req, reply) => {
   reply.send({ hello: '2022' });
 });
 
@@ -17,9 +18,5 @@ userRoute.forEach(r => fastify.route(r));
 leaderRoute.forEach(r => fastify.route(r));
 cuestionarioRoute.forEach(r => fastify.route(r));
 
-const start = async () => {
-  fastify.listen(3000);
-  fastify.log.info(`server listen on ${fastify.server.address}`);
-};
-
-start();
+module.exports = fastify;
+module.exports.handler = serverless(fastify);

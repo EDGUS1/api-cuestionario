@@ -8,27 +8,27 @@ const {
 
 const route = [
   {
-    url: '/leaderboard',
+    url: '/.netlify/functions/api/leaderboard',
     method: 'GET',
     handler: getLeaderBoards,
   },
   {
-    url: '/leaderboard/:id',
+    url: '/.netlify/functions/api/leaderboard/:id',
     method: 'GET',
     handler: getLeaderBoard,
   },
   {
-    url: '/leaderboard',
+    url: '/.netlify/functions/api/leaderboard',
     method: 'POST',
     handler: createLeaderBoard,
   },
   {
-    url: '/leaderboard/:id',
+    url: '/.netlify/functions/api/leaderboard/:id',
     method: 'DELETE',
     handler: deleteLeaderBoard,
   },
   {
-    url: '/leaderboard/:id',
+    url: '/.netlify/functions/api/leaderboard/:id',
     method: 'PUT',
     handler: updateLeaderBoard,
   },

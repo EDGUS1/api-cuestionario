@@ -8,27 +8,27 @@ const {
 
 const route = [
   {
-    url: '/cuestionario',
+    url: '/.netlify/functions/api/cuestionario',
     method: 'GET',
     handler: getCuestionarios,
   },
   {
-    url: '/cuestionario/:id',
+    url: '/.netlify/functions/api/cuestionario/:id',
     method: 'GET',
     handler: getCuestionario,
   },
   {
-    url: '/cuestionario',
+    url: '/.netlify/functions/api/cuestionario',
     method: 'POST',
     handler: createCuestionario,
   },
   {
-    url: '/cuestionario/:id',
+    url: '/.netlify/functions/api/cuestionario/:id',
     method: 'DELETE',
     handler: deleteCuestionario,
   },
   {
-    url: '/cuestionario/:id',
+    url: '/.netlify/functions/api/cuestionario/:id',
     method: 'PUT',
     handler: updateCuestionario,
   },

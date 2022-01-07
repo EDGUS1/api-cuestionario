@@ -21,9 +21,15 @@ const updateLeaderBoard = async (req, reply) => {
   });
   return leader;
 };
+
 const deleteLeaderBoard = async (req, reply) => {
   await LeaderBoard.findByIdAndDelete(req.params.id);
   reply.code(204).send();
+};
+
+const getLeaderBoardByCuestionario = async (req, reply) => {
+  const leader = await LeaderBoard.findOne({ cuestionario: req.params.id });
+  return leader;
 };
 
 module.exports = {
@@ -32,4 +38,5 @@ module.exports = {
   createLeaderBoard,
   updateLeaderBoard,
   deleteLeaderBoard,
+  getLeaderBoardByCuestionario,
 };

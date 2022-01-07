@@ -4,6 +4,7 @@ const {
   createCuestionario,
   deleteCuestionario,
   updateCuestionario,
+  getCuestionarioByCode,
 } = require('../controllers/cuestionario.controller');
 
 const route = [
@@ -31,6 +32,11 @@ const route = [
     url: '/.netlify/functions/api/cuestionario/:id',
     method: 'PUT',
     handler: updateCuestionario,
+  },
+  {
+    url: '/.netlify/functions/api/cuestionario/code/:code',
+    method: 'GET',
+    handler: getCuestionarioByCode,
   },
 ];
 

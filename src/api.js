@@ -4,6 +4,9 @@ const fastify = require('fastify')({
   logger: true,
 });
 const serverless = require('serverless-http');
+fastify.register(require('fastify-cors'), {
+  // put your options here
+});
 
 require('./utils/database');
 const userRoute = require('./routes/user.routes');
@@ -20,3 +23,9 @@ cuestionarioRoute.forEach(r => fastify.route(r));
 
 module.exports = fastify;
 module.exports.handler = serverless(fastify);
+/* const start = async () => {
+  fastify.listen(3001);
+  fastify.log.info(`server listen on ${fastify.server.address}`);
+};
+
+start(); */

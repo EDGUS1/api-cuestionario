@@ -38,10 +38,16 @@ const deleteCuestionario = async (req, reply) => {
   reply.code(204).send();
 };
 
+const getCuestionarioByCode = async (req, reply) => {
+  const cuestionario = await Cuestionario.findOne({ code: req.params.code });
+  return reply.code(200).send(cuestionario);
+};
+
 module.exports = {
   getCuestionarios,
   getCuestionario,
   createCuestionario,
   updateCuestionario,
   deleteCuestionario,
+  getCuestionarioByCode,
 };

@@ -4,6 +4,7 @@ const {
   createCuestionario,
   deleteCuestionario,
   updateCuestionario,
+  getCuestionarioByCode,
 } = require('../controllers/cuestionario.controller');
 
 const route = [
@@ -31,6 +32,11 @@ const route = [
     url: '/cuestionario/:id',
     method: 'PUT',
     handler: updateCuestionario,
+  },
+  {
+    url: '/cuestionario/code/:code',
+    method: 'GET',
+    handler: getCuestionarioByCode,
   },
 ];
 

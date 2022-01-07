@@ -4,6 +4,7 @@ const {
   createLeaderBoard,
   deleteLeaderBoard,
   updateLeaderBoard,
+  getLeaderBoardByCuestionario,
 } = require('../controllers/leaderboard.controller');
 
 const route = [
@@ -31,6 +32,11 @@ const route = [
     url: '/leaderboard/:id',
     method: 'PUT',
     handler: updateLeaderBoard,
+  },
+  {
+    url: '/leaderboard/c/:id',
+    method: 'GET',
+    handler: getLeaderBoardByCuestionario,
   },
 ];
 

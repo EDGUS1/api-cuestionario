@@ -40,7 +40,7 @@ const route = [
     handler: getLeaderBoardByCuestionario,
   },
   {
-    url: '/leaderboard/l/:id',
+    url: '/.netlify/functions/api/leaderboard/l/:id',
     method: 'GET',
     handler: getLBByCuestionarioOrder,
   },

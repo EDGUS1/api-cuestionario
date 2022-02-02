@@ -1,4 +1,6 @@
 const LeaderBoard = require('../models/leaderboard.model');
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
 const getLeaderBoards = async (req, reply) => {
   return await LeaderBoard.find();
@@ -32,6 +34,27 @@ const getLeaderBoardByCuestionario = async (req, reply) => {
   return leader;
 };
 
+const getLBByCuestionarioOrder = async (req, reply) => {
+  const leader = await LeaderBoard.aggregate([
+    {
+      $match: {
+        cuestionario: ObjectId(`${req.params.id}`),
+      },
+    },
+
+    { $unwind: '$participantes' },
+    { $project: { _id: 0, participantes: 1 } },
+    {
+      $sort: {
+        'participantes.puntos': -1,
+        'participantes.minuto': 1,
+        'participantes.segundo': 1,
+      },
+    },
+  ]);
+  return leader;
+};
+
 module.exports = {
   getLeaderBoards,
   getLeaderBoard,
@@ -39,4 +62,5 @@ module.exports = {
   updateLeaderBoard,
   deleteLeaderBoard,
   getLeaderBoardByCuestionario,
+  getLBByCuestionarioOrder,
 };

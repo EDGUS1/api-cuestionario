@@ -1,4 +1,5 @@
 const Cuestionario = require('../models/cuestionario.model');
+const LeaderBoard = require('../models/leaderboard.model');
 
 function makeid(length) {
   var result = '';
@@ -23,6 +24,13 @@ const getCuestionario = async (req, reply) => {
 const createCuestionario = async (req, reply) => {
   const newCuestionario = new Cuestionario({ ...req.body, code: makeid(15) });
   await newCuestionario.save();
+
+  const newLeader = new LeaderBoard({
+    cuestionario: newCuestionario['_id'],
+    participantes: [],
+  });
+  await newLeader.save();
+
   reply.code(201).send(newCuestionario);
 };
 

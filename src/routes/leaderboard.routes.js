@@ -5,6 +5,7 @@ const {
   deleteLeaderBoard,
   updateLeaderBoard,
   getLeaderBoardByCuestionario,
+  getLBByCuestionarioOrder,
 } = require('../controllers/leaderboard.controller');
 
 const route = [
@@ -37,6 +38,11 @@ const route = [
     url: '/.netlify/functions/api/leaderboard/c/:id',
     method: 'GET',
     handler: getLeaderBoardByCuestionario,
+  },
+  {
+    url: '/leaderboard/l/:id',
+    method: 'GET',
+    handler: getLBByCuestionarioOrder,
   },
 ];
 
